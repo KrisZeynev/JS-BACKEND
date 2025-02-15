@@ -4,7 +4,8 @@ const homeController = Router();
 
 homeController.get('/', (req, res) => {
     // res.send('It works! ve ss')
-    res.render('home',)
+    res.render('home')
+    // {pageTitle: 'Home'} if it's required on the exam
 })
 
 
