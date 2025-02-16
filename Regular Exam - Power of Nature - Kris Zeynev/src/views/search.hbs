@@ -1,0 +1,38 @@
+<section class="event-search">
+    <h1 id="title">Search</h1>
+    <form class="search-form" method="post">
+        <input type="text" class="search-event" name="name" placeholder="Search by Name..." value="{{data.name}}">
+        <select id="type" name="type">
+            <option value="Wildfire" {{#if (eq data.type "Wildfire" )}}selected{{/if}}>Wildfire</option>
+            <option value="Flood" {{#if (eq data.type "Flood" )}}selected{{/if}}>Flood</option>
+            <option value="Earthquake" {{#if (eq data.type "Earthquake" )}}selected{{/if}}>Earthquake</option>
+            <option value="Hurricane" {{#if (eq data.type "Hurricane" )}}selected{{/if}}>Hurricane</option>
+            <option value="Drought" {{#if (eq data.type "Drought" )}}selected{{/if}}>Drought</option>
+            <option value="Tsunami" {{#if (eq data.type "Tsunami" )}}selected{{/if}}>Tsunami</option>
+            <option value="Other" {{#if (eq data.type "Other" )}}selected{{/if}}>Other</option>
+        </select>
+        <button type="submit" class="btn-search">Search</button>
+    </form>
+
+    <div class="search-result">
+        <div class="search-list">
+            {{#each disasters}}
+            <div class="event">
+                <div class="img">
+                    <img src="{{image}}">
+                </div>
+                <div class="event-info">
+                    <h1>{{name}}</h1>
+                    <p><span>Location: </span>{{location}}</p>
+                    <p><span>Type: </span>{{type}}</p>
+                </div>
+                <a href="/disasters/{{id}}/details" class="btn-details">Details</a>
+            </div>
+            {{else}}
+            <div class="no-match">
+                <p>No match was found!</p>
+            </div>
+            {{/each}}
+        </div>
+    </div>
+</section>
